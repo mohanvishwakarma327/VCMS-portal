@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Creation</title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>User Creation</h1>
+        <form id="userForm">
+            <label for="userGroup">User Group</label>
+            <select id="userGroup" name="userGroup">
+                <option value="">Please Select</option>
+                <option value="">Admin</option>
+                <option value="">Store</option>
+                <option value="">Vnoc</option>
+                
+                
+            </select>
+            <label for="circle">Store</label>
+            <select id="circle" name="circle">
+                <option value="">Please Select</option>
+                <option value="">Vashi</option>
+                <option value="">Delhi</option>
+                <option value="">Mumbai</option>
+                <option value="">Andheri</option>
+                <option value="">Gurugram</option>
+                <option value="">Indore</option>
+                <option value="">Banglore</option>
+                <option value="">none</option>
+            </select>
+
+            <label for="username">User Name</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="loginId">We See @ Login ID</label>
+            <select id="loginId" name="loginId">
+                <option value="">Please Select</option>
+                <option value="Mr">Mr</option>
+                <option value="Ms">Ms</option>
+                <!-- Add options as needed -->
+            </select>
+            <input type="text" id="email" name="email" placeholder="[Enter your valid e-mail ID as Login ID]" required>
+
+            <label for="mobileNumber">Mobile Number</label>
+            <input type="text" id="mobileNumber" name="mobileNumber" required>
+
+            <label for="status">Status</label>
+            <select id="status" name="status">
+                <option value="">Please Select</option>
+                <option value="active">Active</option>
+                <option value="inactive">Hold</option>
+                <!-- Add options as needed -->
+            </select>
+
+            <div class="buttons">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

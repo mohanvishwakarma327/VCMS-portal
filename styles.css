@@ -1,0 +1,54 @@
+.menu {
+    background-color: #4396CA;
+    color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.vcnow-title {
+align-items: center;
+
+
+}
+.menu > li {
+    position: relative;
+    padding: 10px 20px;
+}
+.menu > li > a {
+    color: white;
+    text-decoration: none;
+}
+.menu > li:hover > .submenu {
+    display: block;
+}
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #EEF0ED;
+    color: black;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    top: 100%;
+    left: 0;
+}
+.submenu li {
+    padding: 10px 20px;
+}
+.submenu li a {
+    color: black;
+    text-decoration: none;
+}
+.submenu li:hover {
+    background-color: #ddd;
+}
+.footer {
+    text-align: center;
+}
+.vcnow-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    padding-top: 15px;
+}

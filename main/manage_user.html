@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Users</title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Manage Users</h1>
+
+    <h2>Add User</h2>
+    <form id="addUserForm">
+        <label for="addUsername">Username:</label>
+        <input type="text" id="addUsername" name="username" required><br>
+        <label for="addPassword">Password:</label>
+        <input type="password" id="addPassword" name="password" required><br>
+        <input type="submit" value="Add User">
+    </form>
+<script>
+        document.getElementById('addUserForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('addUsername').value;
+            const password = document.getElementById('addPassword').value;
+
+            fetch('/addUser', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            }).then(response => response.text()).then(data => {
+                alert(data);
+            });
+        });
+
+        document.getElementById('deleteUserForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('deleteUsername').value;
+
+            fetch('/deleteUser', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username })
+            }).then(response => response.text()).then(data => {
+                alert(data);
+            });
+        });
+
+        document.getElementById('resetUserForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('resetUsername').value;
+            const newPassword = document.getElementById('resetPassword').value;
+
+            fetch('/resetUser', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, newPassword })
+            }).then(response => response.text()).then(data => {
+                alert(data);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Users</title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+        <form id="deleteUserForm">
+            <h2>Delete User</h2>
+            <label for="deleteUserName">User Name:</label>
+            <input type="text" id="deleteUserName" name="deleteUserName" required><br>
+
+            <input type="submit" value="Delete User">
+        </form>
+</div>
+<script>
+        document.getElementById('addUserForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('User added successfully!');
+        });
+
+        document.getElementById('deleteUserForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('User deleted successfully!');
+        });
+
+        document.getElementById('resetUserForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('User password reset successfully!');
+        });
+    </script>
+</body>
+</html>

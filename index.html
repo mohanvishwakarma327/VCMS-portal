@@ -1,0 +1,125 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>VCNow Video Conferencing</title>
+    
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="C:\Users\VNOC\Desktop\VCMS\coustemer">
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const txtDisplayTime = document.getElementById('txtDisplayTime');   
+                const updateDisplayTime = () => {
+                    const dt = new Date();
+                    const minutes = dt.getMinutes().toString().padStart(2, '0');
+                    txtDisplayTime.value = `${dt.toLocaleDateString()} ${dt.getHours()}:${minutes}`;
+                };
+                updateDisplayTime();
+                setInterval(updateDisplayTime, 1000);
+            });
+        </script>
+    </head>
+    <body>
+        <form name="form1" method="post" action="Main.aspx" id="form1">
+            <div>
+                <input type="hidden" name="__VIEWSTATE" value="/wEPDwUKMTQwMTIyMTQ4Nw9kFgICAw9kFgQCAw8PFgIeBFRleHQFH1dlbGNvbWUsIE1yLiBNb2hhbihCcmlkZ2UgVXNlcilkZAIHDzwrAA0BDBQrAAYFEzA6MCwwOjEsMDoyLDA6MywwOjQUKwACFgQfAAUGQnJpZGdlHgpTZWxlY3RhYmxlaBQrAAMFBzA6MCwwOjEUKwACFgYfAAURVXBkYXRlIFZDIERldGFpbHMeC05hdmlnYXRlVXJsBR5WQ0Jvb2tpbmcvVkNMaXN0Rm9yQnJpZGdlLmFzcHgeBlRhcmdldAUJZnJtTWFzdGVyZBQrAAIWBh8ABRVDb25maXJtIEJhY2sgRGF0ZWQgVkMfAgUhVkNCb29raW5nL0JyaWRnZUFwcHJvdmFsRm9ybS5hc3B4HwMFCWZybU1hc3RlcmQUKwACFgQfAAUSQnJpZGdlIFRyYW5zYWN0aW9uHwFoFCsABQUPMDowLDA6MSwwOjIsMDozFCsAAhYGHwAFEUJyaWRnZSBWQyBMaXN0aW5nHwIFKFZDQm9va2luZy9CcmlkZ2VBcHByb3ZhbFBlbmRpbmdMaXN0LmFzcHgfAwUJZnJtTWFzdGVyZBQrAAIWBh8ABSJDYW5jZWxsYXRpb24gUmVxdWVzdCBCeSBVQ1MgU3R1ZGlvHwIFKlJlcG9ydHMvQ2FuY2VsbGF0aW9uUmVxdWVzdEJ5V2ViU3RvcmUuYXNweB8DBQlmcm1NYXN0ZXJkFCsAAhYGHwAFG0NvbmZpcm1lZCBCb29raW5nIEJ5IEJyaWRnZR8CBSVSZXBvcnRzL0NvbmZpcm1lZEJvb2tpbmdCeUJyaWRnZS5hc3B4HwMFCWZybU1hc3RlcmQUKwACFgYfAAUfQWRkIElTRE4vRGlhbGluLURpYWxvdXQgRGV0YWlscx8CBSNWQ0Jvb2tpbmcvVXBkYXRlSVNETlRlbERldGFpbHMuYXNweB8DBQlmcm1NYXN0ZXJkFCsAAhYEHwAFBFZOT0MfAWgUKwACBQMwOjAUKwACFgYfAAUMQ2FsbCBUcmFja2VyHwIFFFZOT0MvQ2FsbExvZ2dlci5hc3B4HwMFCWZybU1hc3RlcmQUKwACFgQfAAUHUmVwb3J0cx8BaBQrAAYFEzA6MCwwOjEsMDoyLDA6MywwOjQUKwACFgYfAAUeT3RoZXIgU3R1ZGlvIEFjdGl2aXR5IENhbGVuZGVyHwIFOFZDYm9va2luZy9TdG9yZUFjdGl2aXR5Q2FsZW5kZXIuYXNweD9BY3Rpdml0eT1PVEhFUlNUT1JFHwMFCWZybU1hc3RlcmQUKwACFgYfAAUdVUNTIFZDIFN0dWRpbyBDb250YWN0IERldGFpbHMfAgUoUmVwb3J0cy9SZWxpYW5jZVdvcmxkQ29udGFjdERldGFpbHMuYXNweB8DBQlmcm1NYXN0ZXJkFCsAAhYGHwAFFVNjaGVkdWxlZCBDb25mZXJlbmNlcx8CBS1SZXBvcnRzL0JyaWRnZVNjaGVkdWxlZENvbmZlcmVuY2VzUmVwb3J0LmFzcHgfAwUJZnJtTWFzdGVyZBQrAAIWBh8ABQ9Bbm5leHVyZSBSZXBvcnQfAgUbUmVwb3J0cy9Bbm5leHVyZVJlcG9ydC5hc3B4HwMFCWZybU1hc3RlcmQUKwACFgYfAAUMVk5PQyBSZXBvcnRzHwIFGFJlcG9ydHMvVk5PQ1JlcG9ydHMuYXNweB8DBQlmcm1NYXN0ZXJkFCsAAhYEHwAFCk15IEFjY291bnQfAWgUKwADBQcwOjAsMDoxFCsAAhYGHwAFD0NoYW5nZSBQYXNzd29yZB8CBRNDaGFuZ2VQYXNzd29yZC5hc3B4HwMFCWZybU1hc3RlcmQUKwACFgYfAAUGTG9nb3V0HwIFC2xvZ291dC5hc3B4HwNlZGRkfstdaO4zlrzUaOsrJwqsFBG50Ic=">
+                <input type="hidden" name="__VIEWSTATEGENERATOR" value="85C21A25">
+            </div>
+            <table width="100%" height="100%">
+                <tr>
+                    <td>
+                        <table width="1000" align="center" cellpadding="0" cellspacing="0" bgcolor="#dbf0fa">
+                            <td class="vcnow-title">
+                                Unified Colabration Services    
+                            </td>   
+                        
+                            <tr>
+                                <td height="58" bgcolor="white">
+                                    <img src="vcnowlogo2.jpg" alt="VCNow Logo">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" background="Images/images/square.jpg" style="height: 10px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr valign="top">
+                                            <td style="height: 10px" align="left">
+                                                <input name="txtDisplayTime" type="text" readonly id="txtDisplayTime" style="color: gray; background-color: #dbf0fa; border: none; font-weight: bold; width: 491px;">
+                                            </td>
+                                            <td style="height: 10px; color: red; font-size: 11px;" align="right">
+                                                <input name="txtUserName" type="text" value="Admin" readonly id="txtUserName" style="color: red; background-color: #dbf0fa; border: none; font-size: 11px; font-weight: bold; width: 90%;">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="29" class="menu">
+                                    <nav>
+                                        <ul class="menu">
+                                            <li>
+                                                <a href="#">Customer</a>
+                                                <ul class="submenu">
+                                                    <li><a href="http://127.0.0.1:5500/coustemer/add_location_client.html" target="frmMaster">Client Configuration</a></li>
+                                                    <li><a href="http://127.0.0.1:5500/coustemer/add_location.html" target="frmMaster">Location</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">User</a>
+                                                <ul class="submenu">
+                                                    <li><a href="http://127.0.0.1:5500/Mange%20user/manage_users.html" target="frmMaster">Add User</a></li>
+                                                    <li><a href="http://127.0.0.1:5500/Mange%20user/Delete.html" target="frmMaster">Delete User</a></li>
+                                                    <li><a href="http://127.0.0.1:5500/Mange%20user/resetuser.html" target="frmMaster">Reset User</a></li>
+                                                </ul>   
+                                            </li>
+                                            <li>
+                                                <a href="#">Reports</a>
+                                                <ul class="submenu">
+                                                    <li><a href="http://127.0.0.1:5500/reports/daily.html" target="frmMaster">Daily Reports</a></li>
+                                                    <li><a href="http://127.0.0.1:5500/reports/client.html" target="frmMaster">Client Reports</a></li>
+                                                </ul>   
+                                            </li>
+                                            <li>
+                                                <a href="#">Account</a>
+                                                <ul class="submenu">
+                                                    <li><a href="http://127.0.0.1:5500/Accounts/accounts.html" target="frmMaster">MyAccount</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="29">
+                                    <iframe id="frmMaster" name="frmMaster" width="100%" height="650px" scrolling="yes" src="UpdateWelcome.aspx"></iframe>
+                                </td>
+                            </tr>    
+                            <tr>
+                                <td class="footer" align="center">
+                                    <hr>
+                                    Powered by Your Company
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="30px">
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="vertical-align:top">
+                                        <tr>
+                                            <td bgcolor="#1359A1" valign="top" height="5px" colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="CopirightLable" bgcolor="#1359A1" valign="top" height="25px" width="50%">
+                                                &nbsp;&nbsp;Copyrights © 2014. All rights reserved. Best viewed in Internet Explorer.
+                                            </td>
+                                            <td class="CopirightLable" bgcolor="#1359A1" valign="top" height="25px" width="50%" align="right">
+                                                Help | Terms of Use | Privacy Policy &nbsp;&nbsp;
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    </html>
