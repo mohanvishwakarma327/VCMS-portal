@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    alert('Develer is here!');
+    alert('Developer is here!');
 });
 
 
