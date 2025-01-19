@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users</title>
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
@@ -34,49 +35,81 @@
     </form>
 
     <script>
-        document.getElementById('addUserForm').addEventListener('submit', function(event) {
+        // Add User Form Submission
+        document.getElementById('addUserForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const username = document.getElementById('addUsername').value;
             const password = document.getElementById('addPassword').value;
 
-            fetch('/addUser', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password })
-            }).then(response => response.text()).then(data => {
-                alert(data);
-            });
+            try {
+                const response = await fetch('https://your-backend-url.com/api/users/add', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    alert(result.message || 'User added successfully!');
+                } else {
+                    const error = await response.json();
+                    alert(error.message || 'Failed to add user.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while adding the user.');
+            }
         });
 
-        document.getElementById('deleteUserForm').addEventListener('submit', function(event) {
+        // Delete User Form Submission
+        document.getElementById('deleteUserForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const username = document.getElementById('deleteUsername').value;
 
-            fetch('/deleteUser', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username })
-            }).then(response => response.text()).then(data => {
-                alert(data);
-            });
+            try {
+                const response = await fetch('https://your-backend-url.com/api/users/delete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    alert(result.message || 'User deleted successfully!');
+                } else {
+                    const error = await response.json();
+                    alert(error.message || 'Failed to delete user.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while deleting the user.');
+            }
         });
 
-        document.addEventListener('DOMContentLoaded', (event) => {
-            alert('Coding in progress');
-        });
-
-        document.getElementById('resetUserForm').addEventListener('submit', function(event) {
+        // Reset User Password Form Submission
+        document.getElementById('resetUserForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const username = document.getElementById('resetUsername').value;
             const newPassword = document.getElementById('resetPassword').value;
 
-            fetch('/resetUser', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, newPassword })
-            }).then(response => response.text()).then(data => {
-                alert(data);
-            });
+            try {
+                const response = await fetch('https://your-backend-url.com/api/users/reset-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, newPassword })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    alert(result.message || 'Password reset successfully!');
+                } else {
+                    const error = await response.json();
+                    alert(error.message || 'Failed to reset password.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while resetting the password.');
+            }
         });
     </script>
 </body>

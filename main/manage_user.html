@@ -16,48 +16,85 @@
         <input type="password" id="addPassword" name="password" required><br>
         <input type="submit" value="Add User">
     </form>
-<script>
-        document.getElementById('addUserForm').addEventListener('submit', function(event) {
+
+    <h2>Delete User</h2>
+    <form id="deleteUserForm">
+        <label for="deleteUsername">Username:</label>
+        <input type="text" id="deleteUsername" name="username" required><br>
+        <input type="submit" value="Delete User">
+    </form>
+
+    <h2>Reset User Password</h2>
+    <form id="resetUserForm">
+        <label for="resetUsername">Username:</label>
+        <input type="text" id="resetUsername" name="username" required><br>
+        <label for="resetPassword">New Password:</label>
+        <input type="password" id="resetPassword" name="newPassword" required><br>
+        <input type="submit" value="Reset Password">
+    </form>
+
+    <script>
+        // Add User
+        document.getElementById('addUserForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const username = document.getElementById('addUsername').value;
             const password = document.getElementById('addPassword').value;
 
-            fetch('/addUser', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password })
-            }).then(response => response.text()).then(data => {
+            try {
+                const response = await fetch('/addUser', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.text();
                 alert(data);
-            });
+            } catch (error) {
+                console.error('Error adding user:', error);
+                alert('An error occurred while adding the user.');
+            }
         });
 
-        document.getElementById('deleteUserForm').addEventListener('submit', function(event) {
+        // Delete User
+        document.getElementById('deleteUserForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const username = document.getElementById('deleteUsername').value;
 
-            fetch('/deleteUser', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username })
-            }).then(response => response.text()).then(data => {
+            try {
+                const response = await fetch('/deleteUser', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username })
+                });
+
+                const data = await response.text();
                 alert(data);
-            });
+            } catch (error) {
+                console.error('Error deleting user:', error);
+                alert('An error occurred while deleting the user.');
+            }
         });
 
-        document.getElementById('resetUserForm').addEventListener('submit', function(event) {
+        // Reset User Password
+        document.getElementById('resetUserForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const username = document.getElementById('resetUsername').value;
             const newPassword = document.getElementById('resetPassword').value;
 
-            fetch('/resetUser', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, newPassword })
-            }).then(response => response.text()).then(data => {
+            try {
+                const response = await fetch('/resetUser', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, newPassword })
+                });
+
+                const data = await response.text();
                 alert(data);
-            });
+            } catch (error) {
+                console.error('Error resetting password:', error);
+                alert('An error occurred while resetting the password.');
+            }
         });
-        
     </script>
 </body>
 </html>

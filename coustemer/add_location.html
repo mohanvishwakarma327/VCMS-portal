@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Location</title>
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
@@ -33,9 +34,38 @@
     </div>
 
     <script>
-        document.getElementById('locationForm').addEventListener('submit', function(event) {
+        document.getElementById('locationForm').addEventListener('submit', async function(event) {
             event.preventDefault();
-            alert('Location added successfully!');
+
+            // Collect form data
+            const locationData = {
+                locationName: document.getElementById('locationName').value,
+                locationAddress: document.getElementById('locationAddress').value,
+                locationCity: document.getElementById('locationCity').value,
+                locationState: document.getElementById('locationState').value,
+                locationZip: document.getElementById('locationZip').value,
+                locationCountry: document.getElementById('locationCountry').value,
+            };
+
+            try {
+                // Send data to the backend
+                const response = await fetch('https://your-backend-api-url.com/locations', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(locationData),
+                });
+
+                if (response.ok) {
+                    alert('Location added successfully!');
+                } else {
+                    alert('Failed to add location. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while saving the location.');
+            }
         });
     </script>
 </body>

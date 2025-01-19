@@ -6,28 +6,35 @@
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <div>
         <form id="deleteUserForm">
             <h2>Delete User</h2>
             <label for="deleteUserName">User Name:</label>
             <input type="text" id="deleteUserName" name="deleteUserName" required><br>
-
             <input type="submit" value="Delete User">
         </form>
-</div>
-<script>
-        document.getElementById('addUserForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('User added successfully!');
-        });
+    </div>
 
+    <script>
+        // Handle Delete User form submission
         document.getElementById('deleteUserForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            alert('User deleted successfully!');
-        });
+            const username = document.getElementById('deleteUserName').value;
 
-        document.getElementById('resetUserForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('User password reset successfully!');
+            // Simulate a fetch request to the backend
+            fetch('/deleteUser', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username })
+            })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data || 'User deleted successfully!');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while deleting the user.');
+                });
         });
     </script>
 </body>
