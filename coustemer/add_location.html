@@ -49,13 +49,15 @@
 
             try {
                 // Send data to the backend
-                const response = await fetch('https://your-backend-api-url.com/locations', {
+                const response = await fetch('http://127.0.0.1:5000/locations', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(locationData),
                 });
+                
+                
 
                 if (response.ok) {
                     alert('Location added successfully!');
