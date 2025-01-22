@@ -13,7 +13,7 @@
             const updateDisplayTime = () => {
                 const dt = new Date();
                 const minutes = dt.getMinutes().toString().padStart(2, '0');
-                txtDisplayTime.value = ${dt.toLocaleDateString()} ${dt.getHours()}:${minutes};
+                txtDisplayTime.value = `${dt.toLocaleDateString()} ${dt.getHours()}:${minutes}`;
             };
             updateDisplayTime();
             setInterval(updateDisplayTime, 1000);
